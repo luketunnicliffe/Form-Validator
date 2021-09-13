@@ -32,11 +32,22 @@ function isValidEmail(email){
 //Check required fields
 function checkRequired(inputArray){
     inputArray.forEach(function(input){
-        console.log(input);
+        if(input.value.trim() === ''){
+            showError(input, `${getFieldName(input)} is required!`);
+        }else{
+            showSuccess(input);
+        }
+        console.log(input.value);
     }
     
     );
 
+}
+
+//Get fieldname
+
+function getFieldName(input){
+    return input.id.charAt(0).toUpperCase() + input.id.slice(1);
 }
 
 //Event listeners
